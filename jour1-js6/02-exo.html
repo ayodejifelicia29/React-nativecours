@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+            // créer le fichier 02-exo.html 
+        // créer dans le fichier un tableau exo
+        // qui contient les valeurs suivantes 
+        // 1 , 2 , 3 
+
+        // ajouter entre le chiffre 1 et 2 le texte "bonjour"
+        // ajouter entre le chiffre  bonjour et le chiffre 2 "comment allez vous"
+        // pouvez vous supprimer le chiffre 2 du tableau 
+        // pouvez vous supprimer le chiffre 1 du tableau
+
+		const exo =[ 1, 2 ,3];
+		exo.splice( 1 , 0 , "bonjour"); // [1,"bonjour, 2, 3]
+
+		exo.splice (2 , 0,"comment allez vous"); // [1,"bonjour, "comment allez vous", 2, 3]
+		// exo. splice (2, 0 , "bonjour" , "comment allez vous");
+        exo.splice (3,1); // [1,"bonjour" , "comment allez vous"  , 3] // exo.splice(-2,1);
+		exo.shift() // ["bonjour" , "comment allez vous"  , 3] // exo.splice(0,1);
+		console.log(exo);
+
+	</script>
+</body>
+</html>

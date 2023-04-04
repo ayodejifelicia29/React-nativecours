@@ -5,11 +5,11 @@ export function Boucle() {
 	const etudiants =[
 		{nom : "Alain" ,age : 20},
 		{nom : "Benoit" ,age : 12},
-		{nom : "Céline" ,age : 20},
+		{nom : "Céline" ,age : 20}
 	];
 
 	 return (
-		<View>
+		 <View>  
 			<Text style={styles.p }>{etudiants[0]. nom} a {etudiants[0].age}</Text>
 			<Text> faire une boucle </Text> 
 			{/** to choose the name of the etudiant with boucle */}

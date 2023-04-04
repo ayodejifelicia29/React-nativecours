@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*créer le fichier 04-exo.html 
+    créer un tableau exo = ["texte" , "lorem" , "ipsum"]
+
+    copie (clone) le tableau exo dans le tableau copie 
+    dans le 1er tableau modifier la valeur de lorem => "test "
+    rechercher le texte "test" dans le tableau copie   => normalement il n'y a pas test dans copie*/
+
+	 const exo  =  ["texte" , "lorem" , "ipsum"]
+	  const copie = [...exo]
+	  
+	 // exo [1] = "test"
+	 //exo. splice (1 , 1 , "test")
+	 exo . splice (exo.indexOf("lorem") , 1 , "test");
+
+	 const recherche = copie.find ((item) => {
+		return item === "test"
+	 });
+	 console.log( recherche);
+	</script>
+</body>
+</html>

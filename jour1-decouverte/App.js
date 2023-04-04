@@ -16,16 +16,23 @@ import { StyleSheet, Text, View } from 'react-native';
 // HMR => Hot Module Reload  react et expo
 
  import { Bonjour } from './composants/Bonjour';
+ import { Exo1 } from './composants/Exo01';
+ import { deuxieme as Toto } from './composants/Deuxieme';
+ import { Boucle } from './composants/Boucle';
+ 
 
 export default function App() {
   return (
     <View style={styles.container}>
        <Bonjour />
+       <Toto />
+       < Boucle />
        {/* composant => un peu comme si on crée une balise */}
         {/* function Bonjour (){} Bonjour () => <Bonjour />*/}
        {/** commentaire en jsx */}
       <Text> Formation Doranco 2023 </Text>
       <Text> Groupe CDA </Text>
+       < Exo1 />
       <StatusBar style="auto" />
     </View>
   );

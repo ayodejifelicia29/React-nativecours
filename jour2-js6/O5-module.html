@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// module c'est export
+         // IIFE => Immediately Invoqued Fonction Expression
+		  (function () {
+			const a = []
+		  }) () ;
+		
+	</script>
+	  <script>
+		    (function () {
+			const a = []
+		  })  ();
+	  </script>
+	  <!------- nouvelle manière de faire -------------->
+	  <script type ="module">
+            const a = []
+			// scope a est limité à la balise script
+	  </script>
+        
+			<script type ="module">
+				const a = []
+			</script>
+
+			<script type="module">
+				// ./ => dans le même dossier que 05-module.html
+				// { } destructuration
+               import {calcul , a} from  "./05-calcul.js" // scr = "05- calcul.js"
+			   calcul ();
+			   console.log(a);
+              // système de module ES6 => Ecma Script
+
+			</script>
+</body>
+</html>

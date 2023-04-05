@@ -27,16 +27,47 @@ import {View} from "react -native"
 
 https://babeljs.io/(traduit le js en web)
 
+----------------
 
-en html 
+en html classique et je classique 
+
+const texte = "jsx"
+
+document.querySelector(".toto").innerHTML = `<div>${jsx}</div>`
+                                        -- 
+
+<View>
+  <Text>tutu </Text>
+  <Text>comment allez vous ??</Text>
+</View>
+
+=> traduction / virtual DOM 
+
+import { jsx as _jsx } from "react/jsx-runtime";
+import { jsxs as _jsxs } from "react/jsx-runtime";
+_jsxs(View, {
+  children: [_jsx(Text, {
+    children: "tutu "
+  }), _jsx(Text, {
+    children: "comment allez vous ??"
+  })]
+});
+
+=> exécuter le code (dans le navigateur ) en + stocker le DOM exécuté dans la RAM 
+si il y a une mis à jour du DOM => virtual DOM (très rapide) puis mise à jour QUE l'élément modifié 
 
 
-=> traduction / shadaw DOM
+<View>
+  [<Text>element1</Text> , <Text>elemnt2</Text>]
+</View>
 
+<View>
+  <Text>element1</Text> 
+  <Text>elemnt2</Text>
+</View>
 
-
-
-
-
-
-=> exécuter le code (dans le navigateur ) en 
+stopper le serveur Command + C
+=>  cd ....
+=> npx create-expo-app --template
+1er choix 
+jour3-composants (entre)

@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 
 export function deuxieme() {
 	return (
-	 	<View> {/**the same thing as div */}
+	 	<View> 
 			<Text>premier ligne </Text>
 			<Text>deuxieme ligne </Text>
 			{/** si vous plusieurs composants frères

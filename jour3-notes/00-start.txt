@@ -1,0 +1,42 @@
+support : 
+https://formation.webdevpro.net/react-native 
+login : react-native 
+password : facebook 
+
+-----------------
+
+notes de cours sur github :
+https://github.com/webdevproformation/react-native-d-avril-2023
+
+
+
+pour quoi les boucles avec [].map () à la place for ()
+
+Toto.jsx 
+
+import {View} from "react -native"
+
+ export function Toto (){
+	const texte = "jsx"
+	return <View> {texte} </View>
+
+ }
+ JSX C'est version de javascript => traduit => javascript (React JS => web)
+                                 => traduit => javascript (React Js => web) => processeur de smartphone
+
+
+https://babeljs.io/(traduit le js en web)
+
+
+en html 
+
+
+=> traduction / shadaw DOM
+
+
+
+
+
+
+
+=> exécuter le code (dans le navigateur ) en 

@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View ,Image} from 'react-native';
 import Premier from './composants/Premier';
+import Diapositive from './composants/Diapositive';
 
 export default function App() {
     
@@ -9,6 +10,13 @@ export default function App() {
        {largeur: 10, hauteur : 30 , unite: "km"},
        {largeur: 60, hauteur : 12 , unite: "mm"},
        {largeur: 60, hauteur : 12 , unite: "mm"},
+     ]
+
+     const diapo=[
+      "https://source.unsplash.com/random/200x100",
+      "https://source.unsplash.com/random/200x101",
+      "https://source.unsplash.com/random/200x102"
+      
      ]
   return (
     <View style={styles.container}>
@@ -29,6 +37,13 @@ export default function App() {
          />
          {/** props spéciale qui permet à React Native de distinguer les différents éléments <Premier /> de la liste */}
       }) }
+
+     {diapo.map(function (uri,index) {
+        return <Diapositive
+            uri = {uri}
+            key={index}
+         />
+        }) }
        <StatusBar style="auto" />
     </View>
   );

@@ -48,3 +48,5 @@ const styles = StyleSheet.create({
 	box : {paddingHorizontal :10},
 	touchableOpacity :{width :100, height :100 ,backgroundColor :"#eee", justifyContent : "center", alignItems : "center" }
 })
+// props // action event // communiquer des coposants 
+// useState

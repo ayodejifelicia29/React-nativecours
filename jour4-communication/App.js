@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View ,Image} from 'react-native';
 import Premier from './composants/Premier';
 import Diapositive from './composants/Diapositive';
+import Compteur from './composants/Compteur';
 
 export default function App() {
     
@@ -20,6 +21,7 @@ export default function App() {
      ]
   return (
     <View style={styles.container}>
+          <Compteur/>
       {/** exécute le composant Premier dans APP en lui ajoutant des props en htlm => attribut
        * vous pouvez en mettre autant que nécessaire nommer comme vous voulez
        */}
@@ -44,6 +46,7 @@ export default function App() {
             key={index}
          />
         }) }
+    
        <StatusBar style="auto" />
     </View>
   );

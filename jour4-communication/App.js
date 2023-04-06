@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View ,Image} from 'react-native';
+import { StyleSheet, Text, ScrollView ,Image} from 'react-native';
 import Premier from './composants/Premier';
 import Diapositive from './composants/Diapositive';
 import Compteur from './composants/Compteur';
 import Like from './composants/Like';
 import {useState  } from "react";
 import LikeCompteur from './composants/LikeCompteur';
+import Article from './composants/Article';
 
 export default function App() {
     
@@ -26,6 +27,21 @@ export default function App() {
        {id:1 ,nb:3},
        {id:1 ,nb:3},
      ]*/
+      const  [articles,setArticles] =useState([
+         
+    {id : 1 , titre : "article 1" , contenu : "lorem ipsum 1" , nb : 0},
+    {id : 2 , titre : "article 2" , contenu : "lorem ipsum 2" , nb : 2},
+    {id : 3 , titre : "article 3" , contenu : "lorem ipsum 3" , nb : 10}
+      ]);
+      const modifierArticle =(id) =>{
+        const cloneArticles =[...articles]
+        const compteAModifier =cloneArticles.find(function (item)  {return item.id ===id})
+        const index =cloneArticles.indexOf(compteAModifier)
+        cloneArticles[index].nb++
+        setArticles(cloneArticles);
+      }
+
+
       const [likes,setLikes]=useState([
                      {id:1 , nb:3},
                      {id: 2 ,nb: 10},
@@ -53,9 +69,13 @@ export default function App() {
       //
       }
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
           {likes.map(function (item,index) {
             return <LikeCompteur key={index} compteur={item} augmenter ={modifierLike} />
+          })}
+          {articles.map(function (item,index) {
+            return<Article key={index} compteur={item} augmenter={modifierArticle}/>
+            
           })}
           <Like/>
           <Compteur/>
@@ -86,7 +106,7 @@ export default function App() {
         }) }
     
        <StatusBar style="auto" />
-    </View>
+    </ScrollView>
   );
 }
 
@@ -94,7 +114,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop : 25
   },
 });

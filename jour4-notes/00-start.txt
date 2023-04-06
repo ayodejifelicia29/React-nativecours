@@ -1,0 +1,9 @@
+1 mise en page => Flexbox (version react native) par défaut flexDirection : "column"
+
+
+2 voir plusieurs composants :
+=> View => <div>
+par défaut View  => si il n'a pas de hauteur fixée via du "css react native"
+sa hauteur dépend de la hauteur de ses composants enfants
+si on fixe une hauteur au composant View => si la somme des hauteurs des éléments
+enfants > une hauteur au composant View => les éléments hors 

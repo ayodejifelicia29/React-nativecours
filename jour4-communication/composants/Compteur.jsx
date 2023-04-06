@@ -32,3 +32,5 @@ const styles = StyleSheet.create({})
 // ce sont des données qui sont stockées dans le composant et qui permet d'alimenter les valeurs affichées
 // pour créer un local state => il faut utiliser une fonction spéciale de React =>hook use
 //useState() => fonction de React
+
+//expo publish (to pulish )

@@ -6,6 +6,7 @@ import Updated from './composants/Updated';
 import Unmounted from './composants/Unmounted';
 import { useState } from 'react';
 import Cocktails from './composants/Cocktails';
+import Pays from './composants/Pays';
 
 export default function App() {
 
@@ -19,8 +20,9 @@ export default function App() {
    const [show, setShow]=useState(true)
   return (
     <View style={styles.container}>
-      <Cocktails/>
+      <Pays/>
       {false && <>
+      <Cocktails/>
       <Mounted/>
       <Updated/>
        <View style={{marginTop :20}}>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<button class="btn1"> btn-1</button>
+	<button class="btn2">btn-2</button>
+
+	    <script>
+			let texte = "bonjour"; // variable globale
+
+			function saluation() {
+				console.log(texte); // il est possible d'utiliser des variables hors des accolades d'une fonction
+			}
+			saluation();
+
+			function hello() {
+				texte ="hello"; // il est aussi possible de modifdier la valeur de la variable globale
+			}
+			hello(); // modifié la valeur de texte ET la fonction salutation est ausssi impactée par cette modification
+
+			saluation (); // ??? bonjour => non hello ????
+
+
+
+			// Au lieu de utiliser la fonction globale , je utilise closure
+             function saluation2() {
+				let texte = "bonjour";
+				return () =>{ // closure
+					console.log(texte);
+				}
+			}
+			const closure =saluation2()
+			closure ();
+
+          // check this site for more information
+         // https://formation.webdevpro.net/js.initation
+		 //js
+		 // mtd: intitation
+
+			// personne ne pas modifie
+          function saluation3() {
+			let texte = "bonjour";
+			return(function () {
+				console.log(texte);
+			})()
+		  }
+		  saluation3()
+		</script>
+</body>
+</html>

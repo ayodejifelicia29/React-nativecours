@@ -7,16 +7,17 @@ import Like from './composants/Like';
 import {useState  } from "react";
 import LikeCompteur from './composants/LikeCompteur';
 import Article from './composants/Article';
+import Composant from './composants/Composant';
 
 export default function App() {
-    
+    /** Premier */
      const liste =[
        {largeur: 40, hauteur : 40 , unite: "cm"},
        {largeur: 10, hauteur : 30 , unite: "km"},
        {largeur: 60, hauteur : 12 , unite: "mm"},
        {largeur: 60, hauteur : 12 , unite: "mm"},
      ]
-
+     /** Diapositive */
      const diapo=[
       "https://source.unsplash.com/random/200x100",
       "https://source.unsplash.com/random/200x101",
@@ -27,6 +28,7 @@ export default function App() {
        {id:1 ,nb:3},
        {id:1 ,nb:3},
      ]*/
+     /** Exo4 (Article solution withusesuse) */ 
       const  [articles,setArticles] =useState([
          
     {id : 1 , titre : "article 1" , contenu : "lorem ipsum 1" , nb : 0},
@@ -41,7 +43,7 @@ export default function App() {
         setArticles(cloneArticles);
       }
 
-
+        /** LikeCompteur solution with useState  */
       const [likes,setLikes]=useState([
                      {id:1 , nb:3},
                      {id: 2 ,nb: 10},
@@ -70,9 +72,13 @@ export default function App() {
       }
   return (
     <ScrollView style={styles.container}>
+            <Composant/>
+                {/* Affichage d'Article*/}
           {likes.map(function (item,index) {
             return <LikeCompteur key={index} compteur={item} augmenter ={modifierLike} />
           })}
+
+          {/* Affichage d'Article*/}
           {articles.map(function (item,index) {
             return<Article key={index} compteur={item} augmenter={modifierArticle}/>
             
@@ -86,8 +92,8 @@ export default function App() {
       {/*<Premier largeur={10} hauteur= "40" unite="cm"/>
       <Premier largeur={30} hauteur="30" unite="km"/>
       <Premier largeur={50} hauteur= "1é" unite="mm"/> */}
-     
-     {/** it's the same as the up but in différent form */}
+      {/** it's the same as the up but in différent form */}
+            {/* Affichage map*/}
       {liste.map(function (item, index) {
         return <Premier
          largeur={item.largeur}
@@ -97,7 +103,7 @@ export default function App() {
          />
          {/** props spéciale qui permet à React Native de distinguer les différents éléments <Premier /> de la liste */}
       }) }
-
+            {/* Affichage diapostive*/}
      {diapo.map(function (uri,index) {
         return <Diapositive
             uri = {uri}

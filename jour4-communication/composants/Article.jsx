@@ -3,7 +3,7 @@ import React from 'react'
 
 const Article = (props) => {
   return (
-	<View>
+	<View style={styles.article}>
 	  <Text>titre</Text>
 	  <Text>{JSON.stringify(props.compteur)}</Text>
 	  <View>
@@ -16,4 +16,7 @@ const Article = (props) => {
 
 export default Article
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+	article :{paddingHorizontal :10 ,marginVertical:20},
+	
+})

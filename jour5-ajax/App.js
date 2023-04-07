@@ -5,6 +5,7 @@ import Mounted from './composants/Mounted';
 import Updated from './composants/Updated';
 import Unmounted from './composants/Unmounted';
 import { useState } from 'react';
+import Cocktails from './composants/Cocktails';
 
 export default function App() {
 
@@ -18,6 +19,8 @@ export default function App() {
    const [show, setShow]=useState(true)
   return (
     <View style={styles.container}>
+      <Cocktails/>
+      {false && <>
       <Mounted/>
       <Updated/>
        <View style={{marginTop :20}}>
@@ -25,6 +28,7 @@ export default function App() {
        {show ? <Unmounted /> : ""}
        {/**show && <Unmounted /> même chose */}
        </View>
+       </>}
       {/** composant dans lequel on a 
        * <TextInput> saisir cocktail
        * <Button>

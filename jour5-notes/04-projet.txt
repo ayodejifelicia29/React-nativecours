@@ -3,3 +3,18 @@ jour5-ajax
 cd jour5-ajax
 npm run android
 to create new projet
+
+=> cas pratique =>
+créer un composant Cocktails.jsx 
+
+View
+    TextInput button (l'un à côté de l'autre)
+    view 
+        <Text> utiliser le formulaire ci dessus pour avoir une liste de cocktails 
+		</Text>
+
+lorsque vous cliquez sur le bouton afficher dans la console le texte écrit dans le champ TextInput
+    
+=> https://reactnative.dev/docs/textinput 
+=> 2 props à connaitre => value={} => le texte affiché dans le champ (visuellement)
+  => onChangeText={(texte) => { console.log(texte)} }

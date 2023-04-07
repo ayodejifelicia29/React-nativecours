@@ -1,8 +1,20 @@
-npx create-expo-app --template
+cd ..
+npx create-expo-app --template 
 jour5-ajax
 cd jour5-ajax
 npm run android
-to create new projet
+
+{ false && <>
+    <Mounted /> 
+    <Updated />
+    <View style={{ marginTop : 20 }}>
+        <Button onPress={() => {setShow(!show)}} title='show/hide'  />
+        { show ? <Unmounted /> : "" }
+        {/* show && <Unmounted />  */}
+    </View>
+</>}
+
+<></> => Fragment 
 
 => cas pratique =>
 créer un composant Cocktails.jsx 
@@ -10,11 +22,22 @@ créer un composant Cocktails.jsx
 View
     TextInput button (l'un à côté de l'autre)
     view 
-        <Text> utiliser le formulaire ci dessus pour avoir une liste de cocktails 
-		</Text>
+        <Text> utiliser le formulaire ci dessus pour avoir une liste de cocktails</Text>
 
 lorsque vous cliquez sur le bouton afficher dans la console le texte écrit dans le champ TextInput
     
 => https://reactnative.dev/docs/textinput 
 => 2 props à connaitre => value={} => le texte affiché dans le champ (visuellement)
-  => onChangeText={(texte) => { console.log(texte)} }
+                       => onChangeText={(texte) => { console.log(texte)} }
+
+lorsque l'on lancer l'api 
+dans la zone de résultat 
+[
+    mojito x 6 => mounted 
+]
+=> https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+
+
+=> lorsque l'on va changer la valeur de la recherche  => update 
+
+=> https://www.thecocktaildb.com/api/json/v1/1/search.php?s=mojito

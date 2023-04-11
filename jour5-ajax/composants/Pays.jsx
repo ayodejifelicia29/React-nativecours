@@ -57,12 +57,10 @@ const Pays = () => {
       {/** Text>{JSON.stringify(item, "" )}</Text>  */}
 			 <Text>{item.flag}</Text>
 			 <Text>{item.name.common}</Text>
-			 <Text>{item.population}</Text>
-			 
-			 
-			 
-                    </View>}
-                    keyExtractor={item => item.idPays}
+			 <Text> population: {item.population}</Text>
+       <Text>devise :{Json.stringify(item.currencies)}</Text>
+			    </View>}
+               keyExtractor={item => item.idPays}
                 />
             }
              

@@ -20,8 +20,7 @@ export default function App() {
    const [show, setShow]=useState(true)
   return (
     <View style={styles.container}>
-       
-        <Pays/>
+       <Pays/>
       {false && <>
       <Cocktails/>
       <Mounted/>

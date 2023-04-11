@@ -5,15 +5,17 @@ avec une liste
 <ul>
 <li><a hfef="">Accueil</a></li>
 <li><a hfef="">presentation</a></li>
-<li><a hfef="">Accueil</a></li>
+<li><a hfef="">login</a></li>
 </ul>
+=> sur React native => il n'existe pas par défaut défaut de barre de menu dans les applications 
 
+=> c'est un composant que l'on va ajouter => via un téléchargement 
 
 => si internet dédié pour ajouter des menus dans React native
  => https://reactnavigation.org/
  => https://reactnative.dev/docs/navigation
 
- => il existe plusieurs manières naviger
+ =>  il existe 3 manières naviger (principale)
  => Stack navigation => un composant qui se pose l'un sur l'autre
 
  => botton -tabs => onglet en bas d'écran => une barre de menu en bas de l'écran
@@ -24,5 +26,25 @@ avec une liste
  côte et vous pouvez tirer => barre latérale qui contient la liste des liens
 
 
- => barre de menu en bas
- => trouve ses billets facilement
+ => barre de menu en bas 
+=> trouve ses billets facilements (cohérent)
+=> en fonction du type d'application que tu vas réaliser =>  bottom-tabs
+
+-----------------
+
+   Bouton => changer password => Stack
+
+Accueil / profil / connexion / SAV / Mention légale ....
+
+=> stopper le projet en cours 
+=> cd .. 
+=> npx create-expo-app --template 
+=> Blank 
+=> jour6-menu 
+
+=> avant de lancer notre application sur notre emulateur
+=> cd jour6-menu 
+npm install @react-navigation/native @react-navigation/native-stack @react-navigation/bottom-tabs react-native-vector-icons react-native-pager-view @react-navigation/material-top-tabs react-native-tab-view react-native-screens react-native-safe-area-context
+
+npx expo install react-native-pager-view@6.1.2 react-native-safe-area-context@4.5.0
+=> npm run android

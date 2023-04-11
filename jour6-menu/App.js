@@ -6,8 +6,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Accueil from "./composants/Accueil"
 import ProfilNavigation from "./composants/ProfilNavigation"
+import ConnexionNavigation from './composants/ConnexionNavigation';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+ 
 
 const Menu = createBottomTabNavigator()
 
@@ -28,6 +30,7 @@ export default function App() {
         {/** https://reactnavigation.org/docs/bottom-tab-navigator */}
         <Menu.Screen name="home" component={Accueil} 
           options={{
+            tabBarActiveBackgroundColor :"blue",
             tabBarIcon : function(){
               return <MaterialCommunityIcons name="home-heart" color="black" size={40} />
             }
@@ -38,11 +41,18 @@ export default function App() {
            * https://pictogrammers.com/library/mdi/
            */}
         <Menu.Screen name="profil" component={ ProfilNavigation } options={{
-          tabBarIcon : function(){
+           tabBarIcon : function(){
             return <MaterialCommunityIcons name="account-box" color="black" size={40} />
           }
         }}/>
+
+<Menu.Screen name="connexion-menu" component={ ConnexionNavigation } options={{
+          tabBarIcon : function(){
+            return <MaterialCommunityIcons name="lock-open" color="black" size={40} />
+          },
+          title: "gestion de votre profil"
          
+        }}/>
        </Menu.Navigator>
 
       </NavigationContainer>

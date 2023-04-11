@@ -50,4 +50,36 @@ npx expo install react-native-pager-view@6.1.2 react-native-safe-area-context@4.
 => npm run android
 
 
-=> Avant de se lancer dans l
+=> Avant de se lancer dans la barre de menu en bas 
+
+je souhaite avec la navigation suivante :
+
+
+
+    Profil =>             Modifier Profil
+
+
+Accueil / Profil  
+
+
+=> App.js => 
+<Menu.Navigator>
+    <Menu.Screen component={Accueil}/>
+    <Menu.Screen component={ProfilNavigation} />
+</Menu.Navigator>
+
+
+=> je vais créer un composant ProfilNavigation (composant intermédiaire)
+
+
+
+<Stack.Screen component={ModifPass} name="modifPass" />
+
+=> ModifPass => le nom du composant à afficher dans la partie centrale de la page 
+=> M Majuscule
+
+=> name="modifPass" => le nom lien => chaine de caractère  => nom du route 
+
+
+url => nom de l'url à afficher 
+=> ce qui doit être affiché dans la page 

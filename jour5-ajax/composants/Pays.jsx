@@ -1,75 +1,72 @@
-import { StyleSheet, Text, View,TextInput , Button ,FlatList } from 'react-native'
-import React ,{useState, useEffect}from 'react'
-
+import { StyleSheet, Text, View , TextInput, Button , FlatList } from 'react-native'
+import React , {useState, useEffect} from 'react'
 
 const Pays = () => {
-	const [recherche , setRecherche] = useState("")
-	const [resultats , setResultats] = useState([]);
 
-	useEffect( function(){
-        setRecherche("all")
-    }, [])
+  const [pays, setPays] = useState([])
+  const [recherche , setRecherche] = useState("")
+  const [searchBtn , setSearchBtn] = useState(0)
 
-	useEffect(function(){
-        fetch("https://restcountries.com/v3.1/all")
+  useEffect( function(){
+    fetch("https://restcountries.com/v3.1/all")
+    .then(reponse => reponse.json())
+    .then(data => setPays(data))
+  }, [])
+
+  useEffect( function(){
+    if(searchBtn > 0){
+        fetch("https://restcountries.com/v3.1/name/"+recherche)
         .then(reponse => reponse.json())
-        .then(data => { 
-			setResultats (data);
-		}); 
-        
-    } , [])
-
-	useEffect(function(){
-        fetch("https://restcountries.com/v3.1/all="+recherche)
-        .then(reponse => reponse.json())
-        .then(data => {
-			if (data.pays.length >0) {
-				setResultats(data)
-			}else{
-				setResultats([])
-			}
-		});
-    } , [recherche])
+        .then(data => setPays(data))
+    }
+  }, [searchBtn])
 
   return (
-      
-	<View>
-		<View>
-			<TextInput
-			placeholder='recherche'
-			value={recherche}
-            onChangeText={(nomPays) => {setRecherche(Pays)}}
-             keyboardType="default"/>
-			<Button title="recherche" onPress={() => {}}/>
-		</View>
-		<View>
-            { resultats.length === 0 
-                ?   
-				<Text>Pays</Text>
-                : 
-                <FlatList 
-                    data={resultats}
-                    renderItem={ ({item}) => <View>
-                    {/*≈Text>{ item.nomPays }</Text>
-                        <Text>{ item.drapeau } </Text>
-			<Text>{ item.population } </Text> */}
-
-      {/** Text>{JSON.stringify(item, "" )}</Text>  */}
-			 <Text>{item.flag}</Text>
-			 <Text>{item.name.common}</Text>
-			 <Text> population: {item.population}</Text>
-       <Text>devise :{Json.stringify(item.currencies)}</Text>
-			    </View>}
-               keyExtractor={item => item.idPays}
-                />
-            }
-             
+    <View>
+        <View style={styles.searchBox}>
+            <TextInput value={recherche} onChangeText={(text) => { setRecherche(text)}} placeholder='rechercher' style={styles.input} />
+            <Button title="go" onPress={() => { setSearchBtn( searchBtn + 1) }}/>
         </View>
-	
-	</View>
+      { pays.length ===  0  
+        ?
+        <Text>rechercher un pays</Text>  
+        :
+        <FlatList data={pays} renderItem={( {item}) => <View>
+            <View style={styles.boxTitre}>
+                <Text style={styles.titre}>{item.name.official} </Text>
+                <Text style={styles.titre}>{item.flag}</Text>
+            </View>
+            <Text>population : {item.population}</Text>
+            <Text>devises : {item.currencies && Object.keys(item.currencies).map(function(devise , index){
+                return <Text key={index}>{JSON.stringify(item.currencies)}</Text>
+            })}</Text>
+        </View>} />
+    }
+    </View>
   )
 }
 
 export default Pays
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    searchBox : {
+        flexDirection: "row" ,
+        justifyContent: "space-between"
+    },
+    input : {
+        borderColor : "black",
+        borderWidth : 1 ,
+        padding : 5 ,
+        flex: 1,
+        marginRight: 10
+    },
+    boxTitre : {
+        flexDirection: "row" ,
+        justifyContent: "space-between",
+        alignItems:"baseline"
+    },
+    titre : {
+        fontSize: 20,
+        marginTop : 20
+    }
+})

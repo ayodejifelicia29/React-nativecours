@@ -14,6 +14,12 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 const Menu = createBottomTabNavigator()
 
 export default function App() {
+        
+     const profil={
+      nom : "Alain",
+      isConnected : true
+     }
+
   return (
     <View style={styles.container}>
       <NavigationContainer>
@@ -45,14 +51,24 @@ export default function App() {
             return <MaterialCommunityIcons name="account-box" color="black" size={40} />
           }
         }}/>
-
-<Menu.Screen name="connexion-menu" component={ ConnexionNavigation } options={{
-          tabBarIcon : function(){
-            return <MaterialCommunityIcons name="lock-open" color="black" size={40} />
-          },
-          title: "gestion de votre profil"
-         
-        }}/>
+        { profil.isConnected 
+          ?
+            <Menu.Screen name="connexion-menu" component={ ConnexionNavigation } options={{
+              tabBarIcon : function(){
+                return <MaterialCommunityIcons name="face-man-profile" color="black" size={40} />
+              },
+              title : `Bienvenu ${profil.nom}`
+            }}/>
+          :
+          <Menu.Screen name="connexion-menu" component={ ConnexionNavigation } options={{
+            tabBarIcon : function(){
+              return <MaterialCommunityIcons name="lock-open" color="black" size={40} />
+            },
+            title : "gestion de votre profil"
+           
+          }}/>
+       }
+       
        </Menu.Navigator>
 
       </NavigationContainer>

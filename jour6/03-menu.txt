@@ -1,0 +1,28 @@
+par défaut dans React native, il n'y a pas de composant Menu
+
+=> html vous avez une balise <a hfef=""></a> qui permet de créer une barre de menu en la combinant
+avec une liste
+<ul>
+<li><a hfef="">Accueil</a></li>
+<li><a hfef="">presentation</a></li>
+<li><a hfef="">Accueil</a></li>
+</ul>
+
+
+=> si internet dédié pour ajouter des menus dans React native
+ => https://reactnavigation.org/
+ => https://reactnative.dev/docs/navigation
+
+ => il existe plusieurs manières naviger
+ => Stack navigation => un composant qui se pose l'un sur l'autre
+
+ => botton -tabs => onglet en bas d'écran => une barre de menu en bas de l'écran
+ => cliquer sur les liens=> passer d'un composant à l'autre 
+ => en maintenant la pression sur l'écran et déplacer le doigt vers la droite translater les écrans
+
+ => drawer barre latérale => que l'on va pouvoir faire apparaitre soit via un bouton ou doigt sur le 
+ côte et vous pouvez tirer => barre latérale qui contient la liste des liens
+
+
+ => barre de menu en bas
+ => trouve ses billets facilement

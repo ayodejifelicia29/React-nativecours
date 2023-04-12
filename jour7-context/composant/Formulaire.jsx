@@ -34,7 +34,7 @@ const Formulaire = () => {
          <Button  onPress={() => logout()} title="deconnexion" />
         : 
           <View>
-            <Text>Formulaire</Text>
+            <Text style={styles.form}>Formulaire</Text>
             <TextInput placeholder='email' style={styles.input} onChangeText={(text) => setEmail(text)} value={email}/>
             <TextInput placeholder='password' style={styles.input} onChangeText={(text) => setPassword(text)} value={password} />
             <Button title="soumettre" onPress={() => authentification()}/>
@@ -51,5 +51,7 @@ export default Formulaire
 const styles = StyleSheet.create({
     box : { margin : 10},
     input : { borderWidth : 1 , borderColor : "black" , padding : 5 , marginBottom : 10},
-    alert : { padding : 10 , color : "red"}
+    alert : { padding : 10 , color : "red"},
+	form:{margin:10}
+
 })

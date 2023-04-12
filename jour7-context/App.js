@@ -1,26 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Formulaire from './composant/Formulaire';
-import Profil from './composant/Profil';
-import { ProfilConxtextProvider } from './contexts/profilContext';
+import { StyleSheet, View } from 'react-native';
+
+import { ProfilContextProvider } from './contexts/profilContext';
+import Menu from './composant/Menu';
 
 export default function App() {
+
   return (
-    <ProfilConxtextProvider>
     <View style={styles.container}>
-      {/** Formulaire ET Profil composants frères */}
-      <Formulaire/>
-      <Profil/>
+      <ProfilContextProvider>
+        <Menu />
+      </ProfilContextProvider>
       <StatusBar style="auto" />
     </View>
-    </ProfilConxtextProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
+    backgroundColor: '#fff'
   },
 });

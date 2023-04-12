@@ -1,15 +1,16 @@
-import { View, Text ,StyleSheet} from 'react-native'
+import { View, Text ,StyleSheet, Button} from 'react-native'
 import React, {useContext} from 'react'
-import { ProfilConxtext } from '../contexts/profilContext'
+import { ProfilContext } from '../contexts/profilContext'
 
 const Profil = () => {
-	const profil = useContext(ProfilConxtext)
+	const {profil, logout} = useContext(ProfilContext)
   return (
 	<View style={styles.box}>
 	   { profil.isLogged 
       ? 
         <View>
           <Text style={styles.titre}>Bienvenue { profil.nom }</Text>
+		  <Button onPress={() => logout()}title="2eme deconnexion" color="purple"/>
         </View>
       : 
         <Text>Veuillez vous connecter pour accéder à votre profil</Text>

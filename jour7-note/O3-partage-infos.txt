@@ -46,6 +46,7 @@ function APP (){ // Parent
  }
        
    export const Profil =({nom}) => {
+	 useState() // localement 
 	   return <Text>
 	    {nom}
 		</Text>
@@ -56,5 +57,7 @@ function APP (){ // Parent
 
    // Redux
    //Context => la nouvelle manière de procéder
-   // le principe de ces techniques => créer un state global => useState global qui peut être partagé entre plusieurs composants quelquesoit le position les uns par rapports aux autres
+   // le principe de ces techniques => créer un state global => useState global qui peut être partagé entre plusieurs composants quelquesoit le position les uns par rapports aux autres.
+   => créer un nouveau projet => npx create-expo-app --template 
+          jour7-context 
    

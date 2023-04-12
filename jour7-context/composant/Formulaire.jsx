@@ -1,9 +1,12 @@
 import { Button, StyleSheet, Text, View ,TextInput} from 'react-native'
-import React from 'react'
+import React ,{useContext}from 'react'
+import { ProfilConxtext } from '../contexts/profilContext'
 
 const Formulaire = () => {
+	const{profil, login} = useContext(ProfilConxtext)
   return (
 	<View style={styles.box}>  
+	   <Text>Formulaire</Text>
 	   <TextInput placeholder='email' style={styles.input} />
 	   <TextInput placeholder= 'password'style={styles.input}  />
 	   <Button title="soumettre" onPress={()=> ("")}/>

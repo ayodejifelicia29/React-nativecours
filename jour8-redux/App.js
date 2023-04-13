@@ -5,13 +5,20 @@ import B from './composant/B';
 import Exo1 from './composant/Exo1';
 import { ExoContextProvider } from './contexts/exoContext';
 import Exo from './composant/Exo';
+import { Provider } from 'react-redux';
+import { store } from "./redux/store";
+import C from './composant/C';
+
+
 
 export default function App() {
   return (
-    <ExoContextProvider>
+ <Provider store={store}>
+ <ExoContextProvider>
     <View style={styles.container}>
-      <Exo/>
+    <C/>
       {false && <>
+        <Exo/>
         <Exo1 />
         <A />
         <B />
@@ -19,6 +26,7 @@ export default function App() {
       <StatusBar style="auto" />
     </View>
     </ExoContextProvider>
+    </Provider>
   );
 }
 

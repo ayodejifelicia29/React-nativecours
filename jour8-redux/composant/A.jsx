@@ -4,6 +4,7 @@ import React,{useState} from 'react'
 const A = () => {
 
 	const [nb,setNb] =useState(0);
+	// plus impéra
   return (
 	<View>
 	  <Text>{nb}</Text>

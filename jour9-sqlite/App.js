@@ -1,18 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View , Platform } from 'react-native';
 import * as SQLITE from "expo-sqlite"
-import {useEffect} from "react"
+import {useEffect , useState} from "react"
 import Form from './composant/Form';
 import Articles from './composant/Articles';
+import { ArticleContext, ArticleContextProvider } from './context/articleContext';
+
+function openDB(){
+  if(Platform.OS === "web"){
+    return {
+      transaction : () => {
+        return {
+          executeSql : () => {} 
+        }
+      }
+    }
+  }
+  return SQLITE.openDatabase("demo.sqlite");
+}
 
 
+const db = openDB() ; 
 
-const db = SQLITE.openDatabase("demo.sqlite");
+
 
 export default function App() {
 
   useEffect( function(){
-
     db.transaction(function(tx){
       tx.executeSql(`CREATE TABLE IF NOT EXISTS articles (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -24,17 +38,17 @@ export default function App() {
                     function(transact, resultat){ console.log("table article créé") },
                     function(transact , err){ console.log("erreur lors de la création") })
     })
-
   } , [])
 
   return (
-   
+   <ArticleContextProvider>
     <View style={styles.container}>
       <Text style={styles.titre}>Utiliser SQLITE dans React Native</Text>
       <Form db={db}/>
       <Articles db={db}/>
       <StatusBar style="auto" />
     </View>
+    </ArticleContextProvider>
   );
 }
 

@@ -1,24 +1,23 @@
-lorsque l'application se lance
+lorque l'application se lance 
 
 => créer une base si elle n'existe pas (automatique via la librairie)
 
-=> créer une table si elle n'existe pas déjà
-=> ce sera la table articles
+=> créer une table si elle n'existe pas déjà 
+=> ce sera la table articles 
 
-CREATE TABLE IF NOT EXISTS articles(
-	id INTEGER PRIMARY KEY AUTOINCREMENHT,
-	titre VARCHAR(200),
-	contenu TEXT ,
-	dt_creation DATETIME  DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE IF NOT EXISTS articles (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    titre VARCHAR(200),
+    contenu TEXT ,
+    dt_creation DATETIME DEFAULT CURRENT_TIMESTAMP
 )
-
 -----------------
-formulaire => ajouter de nouveaux articles
-deux TextInput 'titre' /contenu
+formulaire => ajouter de nouveaux articles 
+deux TextInput 'titre' / contenu 
 
-=> INSERT INTO articles (titre,contenu) VALUES ("...", "...");
+=> INSERT INTO articles ( titre, contenu ) VALUES ( "..." , "..." );
 -------------------
-afficher tous les articles dans la table
+afficher tous les articles dans la table 
 => SELECT * FROM articles ;
 -------------------
 supprimer une ligne 
@@ -26,3 +25,59 @@ DELETE FROM articles WHERE id = 1
 -------------------
 mettre à jour la ligne numéro 1 
 UPDATE articles SET titre = "..." , contenu = "...." WHERE id = 1 ; 
+
+créer un composant formulaire 
+
+vous allez avoir deux champ TextInput 
+titre / contenu 
+button 
+récupérer les valeurs saisies dans chaque champ via le state local 
+
+rdv 10h45 bon café !!!!
+
+
+cas pratique supprimer 
+associer une fonction qui s'appelle supprimer qui aura un paramètre id (de l'article à supprimer)
+
+dans le fonction supprimer 
+réaliser une transaction 
+la requête a exécuter => DELETE FROM articles WHERE id = ? 
+utilisez le tableau de variable pour lui passer l'id concerné 
+
+réaliser une deuxieme transaction SELECT * => setArticle => mise de la vue 
+
+
+cas pratique modifier 
+
+créer un context articleContext 
+
+{ titre : "" , contenu : "" , id : 0}
+
+fonction modifier => cette fonction afficher l'article que vous voulez modifier dans la console 
+
+lorsque vous cliquez sur le bouton modifier => 
+
+------------------------
+
+cas pratique 
+
+remplir le formulaire avec les données récupérée lorsque l'on a cliqué
+
+
+
+modifier un article existant 
+
+2 étapes 
+
+1ère étape => récupérer l'article que l'on veut modifier 
+bouton modifier => récupérer le contenu de l'article 
+
+=> l'envoyer du composant Articles => Formulaire 
+Context => permet de pouvoir tranférer des informations d'un compsant à un autre 
+
+=> envoyer les informations vers Formulaire 
+=> useContext(ArticleContext)
+=> remplir le formulaire ET de pouvoir changer le bouton en dessous du formulaire par <modifier>  <Annuler>
+
+2ème les informations 
+=> UPDATE lorsque l'on clique sur le bouton modifier
